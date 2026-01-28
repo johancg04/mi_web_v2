@@ -6,19 +6,22 @@
       nombre: 'Python-Fundamentos de Programacion',
       enlace: 'https://drive.google.com/file/d/15eNXdiS7vP4vg1OZBxFegkiiXsaxlm2W/view?usp=sharing',
       universidad: 'Universidad Nacional de Ingenieria',
-      anio: '2023'
+      anio: '2023',
+      imagen: 'src/imagenes/img1.png'
     },
     {
       nombre: 'Algoritmos y estrutura de datos avanzado',
       enlace: 'https://drive.google.com/file/d/1d7EK-mH89rQIMcWsiH3YiOAdgAR3k8TE/view?usp=sharing',
       universidad: 'Universidad Nacional de Ingenieria',
-      anio: '2025'
+      anio: '2025',
+      imagen: 'src/imagenes/img2.png'
     },
     {
       nombre: 'Algoritmos y estrutura de datos básico',
       enlace: 'https://drive.google.com/file/d/1C4rd3sCCF8ULIT0bdXBLE1XzVH4Ksf9-/view?usp=sharing',
       universidad: 'Universidad Nacional de Ingenieria',
-      anio: '2025'
+      anio: '2025',
+      imagen: 'src/imagenes/img3.png'
     }
   ]
 
@@ -45,6 +48,9 @@
           </td>
           <td>{{ curso.universidad }}</td>
           <td>{{ curso.anio }}</td>
+          <td>
+            <img v-if="curso.imagen" :src="curso.imagen" alt="" />
+          </td>
         </tr>
       </tbody>
     </table>

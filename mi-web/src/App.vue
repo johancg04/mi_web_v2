@@ -66,11 +66,56 @@
     imagen: 'src/imagenes/img9.png'
   }
 ];
+  
+  const img_prin = 'src/imagenes/img0.png'
+
+  const redirecciones = ["Inicio", "Sobre mí", "Certificados", "Contacto"]
 
   const contenidoF = 'contenidoF'
+
 </script>
 
 <template>
+  <header>
+    <nav class="navbar">
+      <div class="header-nav">
+        <div class="logo">Portafolio</div>
+
+        <div class="nav-buttons">
+          <button v-for="item in redirecciones" class="boton-header">
+            {{ item }}
+          </button>
+        </div>
+      </div>
+    </nav>
+    <hr />
+  </header>
+  
+  <section class="hero">
+    <div class="hero-img">
+      <img v-if="img_prin" :src="img_prin" alt="Foto perfil" />
+    </div>
+
+    <div class="hero-content">
+      <h1>Johan Alexis Contreras Granados</h1>
+      <h2>Estudiante de Ingeniería | Universidad Peruana de Ciencias Aplicadas</h2>
+
+      <p>
+        Como estudiante de Ingeniería de Software en la UPC, mi enfoque está en el
+        aprendizaje continuo y el desarrollo de habilidades clave en tecnología.
+        A lo largo de mi formación, he obtenido certificaciones en instituciones
+        como PUCP, UNI y Platzi.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://www.linkedin.com/in/johan-alexis-contreras-granados-abb06b341/" target="_blank" class="btn linkedin">LinkedIn</a>
+        <a href="https://github.com/johancg04" target="_blank" class="btn github">GitHub</a>
+        <a href="mailto:j.contreras.granados.04@gmail.com" class="btn email">Email</a>
+      </div>
+    </div>
+  </section>
+
+
   <div :class="contenidoF">
     <span>CERTIFICADOS</span>
     <table>
@@ -100,22 +145,132 @@
 </template>
 
 <style scoped>
-.contenidoF {
-  margin-top: 30px;
-  text-align: center;
-  padding: 30px;
-}
+  /** HEADER **/
+  .navbar {
+    width: 100%;
+    padding: 25px 200px;
+  }
 
-div span {
-    font-size: 30px;
-    text-decoration: underline;
-    font-family: "Monaco";
-}
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-table {
-    margin: auto;
+  .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .boton-header {
+    font-size: 15px;
+    background: transparent;
+    padding: 8px 14px;
+    border: white;   
+  }
+
+  .boton-header:hover {
+    color: #3366ff;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #e5e7eb;
+  }
+  /**INFORMACION**/
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 200px;
+    background: #f8fbff;
+  }
+
+  .hero-img img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .hero-content h2 {
+    font-weight: 500;
+    font-size: 25px;
+    color: #2563eb;
+    margin-bottom: 20px;
+  }
+
+  .hero-content p {
+    max-width: 600px;
+    line-height: 1.6;
+    color: #334155;
+    margin-bottom: 30px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .linkedin {
+    background: #3366ff;
+    color: white;
+  }
+
+  .github {
+    background: #111827;
+    color: white;
+  }
+
+  .email {
+    background: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+  }
+
+
+  /** TABLA **/
+  .contenidoF {
     margin-top: 30px;
-}
+    text-align: center;
+    padding: 30px;
+  }
+
+  div span {
+      font-size: 30px;
+      text-decoration: underline;
+      font-family: "Monaco";
+  }
+
+  table {
+      margin: auto;
+      margin-top: 30px;
+  }
 
   table th {
       padding: 5px 30px 5px 30px;
